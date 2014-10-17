@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     var creditsLabel:UILabel!
     var betLabel:UILabel!
-    var winnerPaid:UILabel!
+    var winnerPaidLabel:UILabel!
     
     var creditsTitleLabel:UILabel!
     var betTitleLabel:UILabel!
@@ -150,7 +150,6 @@ class ViewController: UIViewController {
             self.betLabel.backgroundColor = UIColor.darkGrayColor()
             containerView.addSubview(self.betLabel)
             
-            
             self.betTitleLabel = UILabel()
             self.betTitleLabel.text = "Bet"
             self.betTitleLabel.textColor = UIColor.blackColor()
@@ -158,8 +157,26 @@ class ViewController: UIViewController {
             self.betTitleLabel.sizeToFit()
             self.betTitleLabel.center = CGPoint(x: containerView.frame.width * kSixth * 3, y: containerView.frame.height * kThird * 2)
             containerView.addSubview(self.betTitleLabel)
+            
+            self.winnerPaidLabel = UILabel()
+            self.winnerPaidLabel.text = "00000"
+            self.winnerPaidLabel.textColor = UIColor.redColor()
+            self.winnerPaidLabel.font = UIFont(name: "Menlo", size: 16)
+            self.winnerPaidLabel.sizeToFit()
+            self.winnerPaidLabel.center = CGPoint(x: containerView.frame.width * kSixth * 5, y: containerView.frame.height * kThird)
+            self.winnerPaidLabel.textAlignment = NSTextAlignment.Center
+            self.winnerPaidLabel.backgroundColor = UIColor.darkGrayColor()
+            containerView.addSubview(self.winnerPaidLabel)
+            
+            self.winnerPaidTitleLabel = UILabel()
+            self.winnerPaidTitleLabel.text = "Winner Paid"
+            self.winnerPaidTitleLabel.textColor = UIColor.blackColor()
+            self.winnerPaidTitleLabel.font = UIFont(name: "AmericanTypewriter", size:16)
+            self.winnerPaidTitleLabel.sizeToFit()
+            self.winnerPaidTitleLabel.center = CGPoint(x: containerView.frame.width * kSixth * 5, y: containerView.frame.height * kThird * 2)
+            containerView.addSubview(self.winnerPaidTitleLabel)
 
-           
+            
         
         }
         
