@@ -32,9 +32,16 @@ class ViewController: UIViewController {
     let kMarginForSlot:CGFloat = 2.0
     let kSixth:CGFloat = 1.0/6.0
     let kThird:CGFloat = 1.0/3.0
+    let kHalf:CGFloat = 1.0/2.0
+    let kEighth:CGFloat = 1.0/8.0
     
     let kNumberOfContainers = 3
     let kNumberOfSlots = 3
+    
+    var resetButton:UIButton!
+    var betOneButton:UIButton!
+    var betMaxButton:UIButton!
+    var spinButton:UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +51,7 @@ class ViewController: UIViewController {
         self.setupFirstContainer(self.firstContainer)
         self.setupSecondContainer(self.secondContainer)
         self.setupThirdContainer(self.thirdContainer)
-     
-
+        self.setupFourthContainerView(self.fourthContainer)
         
     }
 
@@ -84,7 +90,7 @@ class ViewController: UIViewController {
                                                 width: self.view.bounds.width - (kMarginForView * 2),
                                                height: self.view.bounds.height * kSixth))
         
-        self.fourthContainer.backgroundColor = UIColor.greenColor()
+        self.fourthContainer.backgroundColor = UIColor.blackColor()
         self.view.addSubview(self.fourthContainer)
     
     }
@@ -180,10 +186,71 @@ class ViewController: UIViewController {
         
         }
         
+        
     }
     
     
+    func setupFourthContainerView(containerView:UIView){
+        
+        self.resetButton = UIButton()
+        self.resetButton.backgroundColor = UIColor.grayColor()
+        self.resetButton.setTitle("Reset", forState: UIControlState.Normal)
+        self.resetButton.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        self.resetButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        self.resetButton.sizeToFit()
+        self.resetButton.center = CGPoint(x: containerView.frame.width * kEighth, y: containerView.frame.height * kHalf)
+        self.resetButton.addTarget(self, action: "resetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(self.resetButton)
+        
+        self.betOneButton = UIButton()
+        self.betOneButton.backgroundColor = UIColor.greenColor()
+        self.betOneButton.setTitle("Bet One", forState: UIControlState.Normal)
+        self.betOneButton.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        self.betOneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        self.betOneButton.sizeToFit()
+        self.betOneButton.center = CGPoint(x: containerView.frame.width * kEighth * 3, y: containerView.frame.height * kHalf)
+        self.betOneButton.addTarget(self, action: "betOneButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(self.betOneButton)
+        
+        self.betMaxButton = UIButton()
+        self.betMaxButton.backgroundColor = UIColor.redColor()
+        self.betMaxButton.setTitle("Bet Max", forState: UIControlState.Normal)
+        self.betMaxButton.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        self.betMaxButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        self.betMaxButton.sizeToFit()
+        self.betMaxButton.center = CGPoint(x: containerView.frame.width * kEighth * 5, y: containerView.frame.height * kHalf)
+        self.betMaxButton.addTarget(self, action: "betMaxButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(self.betMaxButton)
+        
+        self.spinButton = UIButton()
+        self.spinButton.backgroundColor = UIColor.greenColor()
+        self.spinButton.setTitle("Spin", forState: UIControlState.Normal)
+        self.spinButton.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        self.spinButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        self.spinButton.sizeToFit()
+        self.spinButton.center = CGPoint(x: containerView.frame.width * kEighth * 7, y: containerView.frame.height * kHalf)
+        self.spinButton.addTarget(self, action: "spinButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(self.spinButton)
+    }
     
+    func resetButtonPressed (button:UIButton){
+    
+        println("Reset Button Pressed")
+    
+    }
+    
+    func betOneButtonPressed (button:UIButton){
+    
+        println("Bet One Button Pressed")
+    }
+    
+    func betMaxButtonPressed (button:UIButton){
+        println("Bet Max Button Pressed")
+    }
+    
+    func spinButtonPressed (button:UIButton){
+        println("Spin Button Pressed")
+    }
     
     
     
